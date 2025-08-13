@@ -9,7 +9,7 @@ MODULE_VERSION("0.1");
 
 static int __init main(void)
 {
-    printk(KERN_INFO "Hello World \n");
+    printk(KERN_INFO "The process is \"%s\" (pid %i)\n", current->comm, current->pid);
     return 0;
 }
 

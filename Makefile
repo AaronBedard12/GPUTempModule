@@ -1,11 +1,10 @@
-obj-m := FirstKernelModule.o
-
-KDIR := /usr/src/linux-6.11
-PWD := $(shell pwd)
-
-all:
-	make -C $(KDIR) M=$(PWD) modules
-
-clean:
-	make -C $(KDIR) M=$(PWD) clean
-
+ifneq ($(KERNELRELEASE),)
+	obj-m := FirstKernelModule.o
+else 
+	KERNELDIR ?= /lib/modules/$(shell uname -r)/build
+	PWD := $(shell pwd)
+default:
+		$(MAKE) -C $(KERNELDIR) M=$(PWD) modules
+clean: 
+		$(MAKE) -C $(KERNELDIR) M=$(PWD) clean
+endif
