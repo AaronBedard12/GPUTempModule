@@ -2,10 +2,7 @@
 #include <linux/kernel.h>
 #include <linux/init.h>
 
-MODULE_LICENSE("GPL");
-MODULE_AUTHOR("Aaron Bedard");
-MODULE_DESCRIPTION("A simple kernel module");
-MODULE_VERSION("0.1");
+
 
 static int __init main(void)
 {
@@ -20,3 +17,8 @@ static void __exit exit(void)
 
 module_init(main);
 module_exit(exit);
+
+MODULE_LICENSE("GPL");
+MODULE_AUTHOR("Aaron Bedard");
+MODULE_DESCRIPTION("A simple kernel module");
+MODULE_VERSION("0.2");
